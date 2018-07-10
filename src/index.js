@@ -4,15 +4,28 @@ import ReactDOM from "react-dom";
 import "./styles.css";
 
 class App extends React.Component {
+  constructor(props){
+    super(props)
+    this.state = {
+      count: 0
+    }
+  this.handleCount = this.handleCount.bind(this)
+  }
+  handleCount(){
+    this.setState({
+      count: this.state.count + 1
+    })
+  }
   render() {
+  
     return (
       <div className="App">
-        <h1>{this.props.count}</h1>
-        <h2>Start editing to see some magic happen!</h2>
+        <h1>{this.state.count}</h1>
+        <button onClick={this.handleCount}>count</button>
       </div>
     );
   }
 }
-let count = 1;
 const rootElement = document.getElementById("root");
-setInterval(() => ReactDOM.render(<App count={count++} />, rootElement), 1000);
+
+ReactDOM.render(<App />, rootElement);
