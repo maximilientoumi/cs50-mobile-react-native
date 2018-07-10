@@ -12,12 +12,15 @@ class App extends React.Component {
     this.handleCount = this.handleCount.bind(this);
   }
   handleCount() {
-    this.setState({
-      count: this.state.count + 1
-    });
-    this.setState({
-      count: this.state.count + 1
-    });
+    this.setState(prevState => ({
+      count: prevState.count + 1
+    }));
+    this.setState(prevState => ({
+      count: prevState.count + 1
+    }));
+    this.setState(prevState => ({
+      count: prevState.count + 1
+    }));
     console.log(this.state.count);
   }
   render() {
